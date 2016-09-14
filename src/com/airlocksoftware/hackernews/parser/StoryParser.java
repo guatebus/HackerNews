@@ -29,6 +29,7 @@ public class StoryParser {
 	/** Parse stories from Front Page, Ask, Best, or New * */
 	public static StoryResponse parseStoryList(Context context, Page page, Request request, String moreFnid) {
 		String urlExtension = generateUrlExtension(request, page, moreFnid);
+		//domain is gotten from page arg passed in this call to parseStories() check if protocol is available around there...
 		StoryResponse response = parseStories(context, page, urlExtension);
 		// parseStories() doesn't know about MORE, so potentially set it here
 		if (response.result == Result.SUCCESS && moreFnid != null && request == Request.MORE) {
